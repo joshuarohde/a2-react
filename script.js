@@ -62,7 +62,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <div>
     <Header title="Welcome to My Site" message="Thanks for visiting my site." />
-    <content>
+    <section>
     <TodoList
       todos={[
         { text: "Learn React", completed: false },
@@ -76,7 +76,7 @@ root.render(
       image="https://images-assets.nasa.gov/image/61a-s-0139/61a-s-0139~large.jpg?w=1920&h=1257&fit=clip&crop=faces%2Cfocalpoint"
       content="This is the content of my card."
     />
-    </content>
+    </section>
     <Footer />
   </div>
 );
