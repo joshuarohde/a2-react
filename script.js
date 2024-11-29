@@ -1,120 +1,82 @@
-// <!-- 
-// 1. Header comp:
-
-
-const Header = ({ title, message }) => (// a. Be named "Header".
-    // b. Take in TWO props 
-    <header> 
-      <h1>{title}</h1>
-      <p>{message}</p>
+ // 1. Header Component
+ const Header = ({ title, message }) => {
+  return (
+    <header>
+      <div id="planet">
+        <img
+          className="animate__animated animate__pulse animate__infinite animate__slower"
+          src="https://www.transparentpng.com/thumb/planet/high-quality-earth-png-png-transparent-free-download--cEiWuV.png"
+          alt="high quality earth png png transparent free download @transparentpng.com"
+        />
+      </div>
+      <div id="titles">
+        <h1 className="animate__animated animate__pulse animate__infinite animate__slower">{title}</h1>
+        <p className="animate__animated animate__pulse animate__infinite animate__slower">{message}</p>
+      </div>
     </header>
   );
+};
 
-  ReactDOM.render(<Header />, document.getElementById('root'));
-
-// c. Prompt 1. title 
-// d. Prompt 2. message
-// e. display the "title" prop in an <h1> tag.
-// f. display the "message" prop in a <p> tag.
-
-
-
-
-// 2. Footer comp:
-
-
-const Footer = ({ message }) => (// a. Be named "Footer".
-// b. Take in prop named "message".    
-<footer>
+// 2. Footer Component
+const Footer = ({ message }) => {
+  return (
+    <footer>
       <p>{message || "Copyright © 2023 My Website. All rights reserved."}</p>
     </footer>
   );
+};
 
-  ReactDOM.render(<Footer />, document.getElementById('root'));
-// c. display the "message" prop in a <p> tag.
-// d. include a default message that says "Copyright © 2023 My Website. All rights reserved."
-
-
-
-
-//IDK -----------------------------------------------------------------------------------------------------------------
-
-// 3. TodoList component:
-
+// 3. TodoList Component
 const TodoList = ({ todos }) => {
-    // a. Be named "TodoList".
-    // b. Take in a prop named "todos".
-    // c. Display the "todos" prop as a list of todo items.
-    return (
-      <div>
-        <ul>
-          {todos.map((todo, index) => (
-            <li key={index}>
-              <input type="checkbox" checked={todo.completed} readOnly />
-              {todo.text}
-            </li>// d. "todo" item should be displayed with a checkbox and its text.
-          ))}
-        </ul>
-        <button>Remove Completed</button>
-      </div>  // e. Include a button to remove completed todo items from the list.
-    );
-  };
-  
-  // Example usage:
-  const todos = [
-    { text: "Learn React", completed: false },
-    { text: "Build a Todo List", completed: true },
-    { text: "Celebrate Progress", completed: false },
-  ];
-  
-  ReactDOM.render(<TodoList todos={todos} />, document.getElementById("root"));
+  return (
+      <div className="animate__animated animate__fadeIn animate__slow">
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>
+            <input type="checkbox" checked={todo.completed} readOnly />
+            {todo.text}
+          </li>
+        ))}
+      </ul>
+      <button>Remove Completed</button>
+    </div>
+  );
+};
 
-
-// 4. Card component:
-
-
-
-
-
-
-  
-  // a. Be named "Card".
-  // b. take in four props named "title", "subtitle", "image", and "content".
-  const Card = ({ title, subtitle, image, content }) => (
-    <div className="card">
+// 4. Card Component
+const Card = ({ title, subtitle, image, content }) => {
+  return (
+    <div className="animate__animated animate__fadeIn animate__slow , card">
       <h2>{title}</h2>
       <h3>{subtitle}</h3>
       <img src={image} alt={subtitle} style={{ width: "100%" }} />
       <p>{content}</p>
     </div>
   );
-  // c. display the "title" prop in an <h2> tag.
-// d.  display the "subtitle" prop in a <h3> tag.
-// e. display the "content" prop in a <p> tag.
-// f. display the "image" prop as an <img> tag. 
-// -->
+};
 
+// Import createRoot from ReactDOM
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-
-  // Render Components for Testing
-  ReactDOM.render(
-    <div>
-      <Header title="Welcome to My Site" message="Thanks for visiting my site." />
-      <TodoList
-        todos={[
-          { text: "Learn React", completed: false },
-          { text: "Complete Assignment", completed: false },
-          { text: "Take a Break", completed: false },
-        ]}
-      />
-      <Card
-        title="My Card Title"
-        subtitle="My Card Subtitle"
-        image="https://example.com/my-image.jpg"
-        content="This is the content of my card."
-      />
-      <Footer />
-    </div>,
-    document.getElementById("root")
-  );
-  
+// Use createRoot instead of ReactDOM.render
+root.render(
+  <div>
+    <Header title="Welcome to My Site" message="Thanks for visiting my site." />
+    <content>
+    <TodoList
+      todos={[
+        { text: "Learn React", completed: false },
+        { text: "Complete Assignment", completed: false },
+        { text: "Take a Break", completed: false },
+      ]}
+    />
+    <Card
+      title="My Card Title"
+      subtitle="My Card Subtitle"
+      image="https://images-assets.nasa.gov/image/61a-s-0139/61a-s-0139~large.jpg?w=1920&h=1257&fit=clip&crop=faces%2Cfocalpoint"
+      content="This is the content of my card."
+    />
+    </content>
+    <Footer />
+  </div>
+);
